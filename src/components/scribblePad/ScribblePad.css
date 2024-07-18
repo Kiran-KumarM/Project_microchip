@@ -1,0 +1,20 @@
+.canvas{
+    margin-top: 3rem;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+    display: flex;
+    gap: 2rem;
+
+    div{
+        display:flex;
+        flex-direction: column;
+        gap: 3rem;
+        justify-content: center;
+    }
+}
+
+
+.canvas-sketch{
+    border:1px solid black;
+}

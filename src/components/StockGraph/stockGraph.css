@@ -1,0 +1,24 @@
+.container_main{
+    border-radius:20px;
+    padding: 15px;
+    background-color: white;
+    margin-top: 2rem;
+}
+.customaxis path{
+    stroke:rgb(197, 197, 197);
+}
+.customaxis g.tick line{
+    stroke:#e8e8e8;
+}
+
+
+.stockInfo{
+    font-weight: 600;
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    padding-left: 1rem;
+}
+
+svg{
+    overflow:visible;
+}

@@ -1,0 +1,89 @@
+.weather{
+    background: url("../../../public/images/background.png") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
+     border-radius: 10px;
+     padding: 15px;
+     color: white;
+}
+.weather_card{
+    .cityName{
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .temp_info{
+        display:flex;
+        justify-content: center;
+
+        .current_temp{
+            font-size: 4.3rem;
+            padding-right:1rem;
+            margin-right:2rem; 
+            position: relative;        
+        }
+        .current_temp::before{
+            content:'o';
+            font-size:1rem;
+            top:  1rem;
+            right: .0;
+            position: absolute;
+        }
+        .current_temp::after{
+            content:'C';
+            font-size:2rem;
+            top:  1.5rem;
+            right: -1.3rem;
+            position: absolute;
+        }
+        .temp_desc{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .feels_like{
+                opacity:0.8
+            }
+        }
+    }
+
+    .extra_info{
+        margin: 3rem 0;
+        display:grid;
+        grid-template-columns: repeat(4,1fr);
+        text-align: center;
+        
+        .img{
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+             filter: invert(1);
+             margin: auto;
+             margin-bottom: 1rem;
+        }
+
+        .wind{
+            background-image: url('../../../public/images/wind.png');
+        }
+        .humid{
+            background-image: url('../../../public/images/humidity.png');
+        }
+        .pressure{
+            background-image: url('../../../public/images/pressure-gauge.png');
+        }
+        .visible{
+            background-image: url('../../../public/images/witness.png');
+        }
+       .title{
+            
+            font-size: .86rem;
+        }
+        .data{
+            font-weight: 700;
+        }
+    }
+}

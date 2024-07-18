@@ -1,0 +1,35 @@
+input[type="text"]{
+    border-radius: 2rem;
+    background: #cfd4ff;
+    margin-bottom:0;
+    width: 30%;
+    font-size: 1.1rem;
+    color: black;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.searchresult{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px soild grey;
+    width:calc( 30% - 1.3rem);
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 5px;
+    position: absolute;
+    background: white;
+    z-index: 2;
+  }
+
+
+.searchresult li{
+    padding:8px 20px; 
+    color: black;
+  }
+  .searchresult li:hover{
+    background-color: gainsboro;
+    cursor: pointer;
+  }
