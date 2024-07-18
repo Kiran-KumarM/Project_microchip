@@ -4,12 +4,17 @@ input[type="text"]{
     margin-bottom:0;
     width: 30%;
     font-size: 1.1rem;
-    color: black;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+input.stock{
+  color:black;
 }
 .searchresult{
     list-style: none;
@@ -22,8 +27,14 @@ input[type="text"]{
     position: absolute;
     background: white;
     z-index: 2;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 3px 0;
+    background: #ffffffeb;
   }
 
+  input.weather::placeholder{
+  color: white;
+}
 
 .searchresult li{
     padding:8px 20px; 

@@ -56,9 +56,9 @@ function resetData(){
 
   return (
     <div >
-    <input type="text" placeholder="Enter city" ref={inputFeild} onKeyDown={handelEnter} />
+    <input type="text"  className={`${type=="Weather" ? 'weather' : 'stock'}`} placeholder={`${type=="Weather" ? 'Enter City' : 'Enter Stock Name'}`} ref={inputFeild} onKeyDown={handelEnter} />
     { data &&
-          <ul className="searchresult">
+          <ul className={`searchresult ${type=="Weather" ? 'weather' : 'stock'}`}>
         {type == "Stock" && data.map((x)=> (   
          
           <li key={x["1. symbol"]} onClick={()=>{handleSelect(x);resetData()} }>{`${x["2. name"]} (${x["1. symbol"]})`}</li>        
