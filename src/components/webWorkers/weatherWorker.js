@@ -4,9 +4,7 @@ export default () => {
     
     if (!e) return;
     let data = e.data;
-    console.log(e);
   //  clearInterval(interval)
-   // let res = null;
    fetchdata(data)
 
 // let interval =   setInterval(()=>{

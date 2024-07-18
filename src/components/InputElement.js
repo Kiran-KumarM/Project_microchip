@@ -6,6 +6,11 @@ const InputElement = ({type,handleSelect}) => {
   const inputFeild=useRef(null)
 
     function handelEnter(event){
+      if(!event.target.value){
+
+        setData(null)
+      }
+
         if (event.key === "Enter") {
             if(type=="Weather"){
                 console.log('enter',event)
@@ -27,7 +32,6 @@ const InputElement = ({type,handleSelect}) => {
                     //   };
                     });
             }else{
-                console.log('enter',event)
                 let keyword ='tesco' //
                // let keyword =event.target.value
               fetch(`${STOCK_API_URL}query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${STOCK_API_KEY}`)
@@ -36,8 +40,6 @@ const InputElement = ({type,handleSelect}) => {
                 })
                 .then((data) => {
                   setData(data.bestMatches)
-                  console.log(data);
-                 // console.log(stockList)
               });
             }
     
@@ -56,17 +58,22 @@ function resetData(){
 
   return (
     <div >
-    <input type="text"  className={`${type=="Weather" ? 'weather' : 'stock'}`} placeholder={`${type=="Weather" ? 'Enter City' : 'Enter Stock Name'}`} ref={inputFeild} onKeyDown={handelEnter} />
+    <input type="text"  className={`${type=="Weather" ? 'weather' : 'stock'}`} placeholder={`${type=="Weather" ? 'Enter City' : 'Enter Stock Name'}`} ref={inputFeild} onKeyUp={handelEnter} />
     { data &&
           <ul className={`searchresult ${type=="Weather" ? 'weather' : 'stock'}`}>
-        {type == "Stock" && data.map((x)=> (   
+            {data ? 
+            <div className="no_result"> No Data Found</div>  :
+
+          <>
+        {type == "Stock"  && data.map((x)=> (   
          
           <li key={x["1. symbol"]} onClick={()=>{handleSelect(x);resetData()} }>{`${x["2. name"]} (${x["1. symbol"]})`}</li>        
         ))}
 
         {type == "Weather" && data.map((x)=> (   
          <li key={x["id"]} onClick={()=>{handleSelect(x);resetData()} }>{`${x["name"]} (${x["country"]})`}</li>        
-       ))}
+       ))}</>
+      }
           </ul>
 }
 </div>

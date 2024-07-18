@@ -17,23 +17,15 @@ const Weather = () => {
     // Set up event listener for messages from the worker
 
 
-    // Clean up the worker when the component unmounts
-    // return () => {
-    //   console.log('terminate')
-    //   workerInstance.terminate();
-    // };
+
   }, []);
 
   workerInstance.onmessage = function (event) {
-    console.log("Received result from worker:", event.data);
     updatedata(event.data)
-    console.log(event.data,"got m,essage")
   };
 
   function  updatedata(event){
-    console.log(event,"got another message")
         setData(event);
-        console.log(data)
     }
 
 

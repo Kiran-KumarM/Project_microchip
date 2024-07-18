@@ -1,7 +1,6 @@
 import React, {useEffect,useRef ,useState}from 'react'
 
 const useDraw = (onDraw) => {
-    console.log('dsad')
     const [mouseDown, setMouseDown] = useState(false)
 
     const canvasRef =useRef(null);
@@ -49,7 +48,6 @@ const useDraw = (onDraw) => {
             prevPoint.current = null
           }
 
-        console.log('dsd'+ canvasRef.current)
         canvasRef.current?.addEventListener('mousemove',handler);
         window.addEventListener('mouseup', mouseUpHandler)
 

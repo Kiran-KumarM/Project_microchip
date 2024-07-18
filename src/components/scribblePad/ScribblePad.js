@@ -6,7 +6,7 @@ const ScribblePad = () => {
 let [lineColor,setLineColor]=useState('#000')
 
 let {canvasRef,onMouseDown, clear}=useDraw(drawLine);
-console.log(canvasRef)
+
 
 
 function drawLine({prevPoint,currentPoint,ctx}){
@@ -28,7 +28,6 @@ function drawLine({prevPoint,currentPoint,ctx}){
 }
 
 function colorhand(e){
-  console.log(e)
 }
   return (
     <div className="canvas">

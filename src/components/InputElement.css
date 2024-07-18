@@ -13,6 +13,7 @@ input[type="text"]{
     color: white;
     outline: none;
 }
+
 input.stock{
   color:black;
 }
@@ -36,7 +37,7 @@ input.stock{
   color: white;
 }
 
-.searchresult li{
+.searchresult li , .no_result{
     padding:8px 20px; 
     color: black;
   }

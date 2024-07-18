@@ -18,30 +18,23 @@ const StockGraphMain = () => {
           return res.json();
         })
         .then((data) => {
-          console.log(data);
             let sData=[]
            for(let key in data["Time Series (Daily)"]) {
                 sData.push({x:key , y:+data["Time Series (Daily)"][key]["2. high"]})
            }
-           console.log(sData);
            var decreaseValue = sData[0].y -sData[sData.length-1].y;
 
           let result= (decreaseValue / sData[0].y) * 100;
           result =  sData[sData.length-1].y > sData[0].y   ? result.toFixed(2) : '+'+result.toFixed(2) 
 
-          setStockData({metaInfo:data["Meta Data"]  , data:sData,percentChange : result ,
+          setStockData({metaInfo:data["Meta Data"]  , data:sData,percentChange : result , priceChange:  sData[sData.length-1].y > sData[0].y  ? decreaseValue.toFixed(2) : '+'+decreaseValue.toFixed(2),
             color: result.includes('+') ? 'green' : 'red'      
           });
-          console.log(stockData,'stockData')
+          console.log(stockData)
         });
       
-      //  setStockData(getStockData())
-      //  console.log(stockData,'ds')
-         
+      //  setStockData(getStockData())         
       },[selectedStock])
-
-
-
 
       function handleSelect(value){
         setselectedStock(value["1. symbol"])
@@ -65,6 +58,7 @@ const StockGraphMain = () => {
         </div> */}
         <div className='stockInfo'>
           <span>{stockData?.metaInfo["2. Symbol"]}</span> <span style={{color : stockData?.color  }}>({stockData?.percentChange + ' %'})</span>
+          <div><span>{stockData.data[0].y}</span><span>{stockData.priceChange}</span></div>
         </div>
 
         

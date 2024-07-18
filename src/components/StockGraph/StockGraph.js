@@ -4,7 +4,6 @@ import * as d3 from "d3";
 const MARGIN = { top: 30, right: 30, bottom: 50, left: 50 };
 
 const StockGraph = ({ width, height, data,linecolor }) => {
-console.log(linecolor)
 const axesRef = useRef(null);
 const boundsWidth = width - MARGIN.right - MARGIN.left;
 const boundsHeight = height - MARGIN.top - MARGIN.bottom;
