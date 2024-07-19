@@ -57,8 +57,8 @@ const StockGraphMain = () => {
 }
         </div> */}
         <div className='stockInfo'>
-          <span>{stockData?.metaInfo["2. Symbol"]}</span> <span style={{color : stockData?.color  }}>({stockData?.percentChange + ' %'})</span>
-          <div><span>{stockData.data[0].y}</span><span>{stockData.priceChange}</span></div>
+          <span>{stockData?.metaInfo["2. Symbol"]}</span><span className="price">{'   '+stockData.data[0].y}</span> 
+          <div className="percentChange" style={{color : stockData?.color  }}><span>{stockData.priceChange}</span> <span >({stockData?.percentChange + '%'})</span></div>
         </div>
 
         

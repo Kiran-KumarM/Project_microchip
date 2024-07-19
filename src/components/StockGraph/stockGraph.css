@@ -18,7 +18,14 @@
     font-size: 1.4rem;
     padding-left: 1rem;
 }
-
+.price{
+    opacity:0.9;
+    color: rgb(44, 44, 44);
+    font-size: 1.3rem;
+}
+.percentChange{
+    font-size: 1.3rem;
+}
 svg{
     overflow:visible;
 }
