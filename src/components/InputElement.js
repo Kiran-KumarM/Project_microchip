@@ -4,8 +4,8 @@ import './InputElement.css'
 const InputElement = ({type,handleSelect}) => {
    let  [data,setData]=useState(null)
   const inputFeild=useRef(null)
-
-    function handelEnter(event){
+  
+   function handelEnter(event){
       if(!event.target.value){
 
         setData(null)
@@ -61,7 +61,7 @@ function resetData(){
     <input type="text"  className={`${type=="Weather" ? 'weather' : 'stock'}`} placeholder={`${type=="Weather" ? 'Enter City' : 'Enter Stock Name'}`} ref={inputFeild} onKeyUp={handelEnter} />
     { data &&
           <ul className={`searchresult ${type=="Weather" ? 'weather' : 'stock'}`}>
-            {data ? 
+            {data == null? 
             <div className="no_result"> No Data Found</div>  :
 
           <>

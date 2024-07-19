@@ -9,16 +9,28 @@ import InputElement from "../InputElement";
 const Weather = () => {
   const workerInstance = new WorkerFactory(myWorker);
   let [data,setData]=useState(null);
-
+ 
+  let [lati, long]=[localStorage.getItem('lat'),localStorage.getItem('lon')]
+  lati=localStorage.getItem('lat') ?13.342 : localStorage.getItem('lat');
+  long=localStorage.getItem('lon') ? 80.27 :localStorage.getItem('lon');
 
   useEffect(() => {
+  
+    // localStorage.setItem('lat',13.343)
+    // localStorage.setItem('lon',80.2705)
     // Create a new web worker
-    workerInstance.postMessage({WEATHER_API_URL:WEATHER_API_URL,WEATHER_API_KEY:WEATHER_API_KEY,lat:13.343,lon:80.2705})
+    workerInstance.postMessage({WEATHER_API_URL:WEATHER_API_URL,WEATHER_API_KEY:WEATHER_API_KEY,lat:lati,lon:long})
     // Set up event listener for messages from the worker
-
+    //refreshData()
 
 
   }, []);
+
+//   function refreshData(){
+//  let interval = setInterval(() => {
+//     workerInstance.postMessage({WEATHER_API_URL:WEATHER_API_URL,WEATHER_API_KEY:WEATHER_API_KEY,lat:lati,lon:long})
+//     }, 10000);
+//   }
 
   workerInstance.onmessage = function (event) {
     updatedata(event.data)
@@ -30,6 +42,10 @@ const Weather = () => {
 
 
     function handleSelect(e){
+      localStorage.setItem('lat',e.latitude)
+      localStorage.setItem('lon',e.longitude)
+      lati=e.latitude;
+      long=e.longitude;
       workerInstance.postMessage({WEATHER_API_URL:WEATHER_API_URL,WEATHER_API_KEY:WEATHER_API_KEY,lat:e.latitude,lon:e.longitude})
     }
   return (
