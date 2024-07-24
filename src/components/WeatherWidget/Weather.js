@@ -19,7 +19,7 @@ const Weather = () => {
     // localStorage.setItem('lat',13.343)
     // localStorage.setItem('lon',80.2705)
     // Create a new web worker
-    workerInstance.postMessage({WEATHER_API_URL:WEATHER_API_URL,WEATHER_API_KEY:WEATHER_API_KEY,lat:lati,lon:long})
+    workerInstance.postMessage({WEATHER_API_URL:WEATHER_API_URL,WEATHER_API_KEY:WEATHER_API_KEY,lat:13.34,lon:80.27})
     // Set up event listener for messages from the worker
     //refreshData()
 

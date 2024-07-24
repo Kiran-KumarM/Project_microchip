@@ -32,8 +32,8 @@ const InputElement = ({type,handleSelect}) => {
                     //   };
                     });
             }else{
-                let keyword ='tesco' //
-               // let keyword =event.target.value
+               // let keyword ='tesco' //
+                let keyword =event.target.value
               fetch(`${STOCK_API_URL}query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${STOCK_API_KEY}`)
               .then((res) => {
                   return res.json();
